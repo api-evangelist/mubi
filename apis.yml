@@ -1,17 +1,32 @@
 aid: mubi
 name: MUBI
-description: 'MUBI is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'MUBI is a London-headquartered global streaming service, film distributor
+  and production company founded in 2007 by Efe Cakarel (originally as The Auteurs,
+  rebranded MUBI in 2010). It operates a curated subscription video-on-demand service
+  for arthouse, independent, documentary and world cinema across more than 190 countries,
+  alongside MUBI GO (weekly cinema tickets), the Notebook film-criticism publication
+  and print magazine, MUBI Editions, a merchandise shop, and theatrical distribution
+  and sales arms including The Match Factory and Cineart. MUBI publishes no public
+  developer program, API documentation, or machine-readable specification; the
+  api.mubi.com host serves its own first-party web, mobile and TV clients only.'
 url: https://raw.githubusercontent.com/api-evangelist/mubi/refs/heads/main/apis.yml
+image: https://assets.mubicdn.net/splash/volver.jpg
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+x-tier: profiled
+x-tier-reason: enrichment-pass
 specificationVersion: '0.20'
 created: '2026-08-04'
 modified: '2026-08-04'
 tags:
 - Company
+- Streaming
+- Media
+- Entertainment
+- Film
+- Video On Demand
+- Subscription
+- Distribution
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +34,52 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/mubi-domain-security.yml
 - type: Website
+  url: https://mubi.com/
+- type: Support
+  url: https://help.mubi.com/
+- type: Blog
+  url: https://mubi.com/en/notebook
+- type: Pricing
+  url: https://mubi.com/en/us/memberships
+- type: SignUp
+  url: https://mubi.com/en/signup
+- type: TermsOfService
+  url: https://mubi.com/en/terms_of_service
+- type: PrivacyPolicy
+  url: https://mubi.com/en/privacy_policy
+- type: GitHubOrganization
+  url: https://github.com/mubi
+- type: SecondaryMarket
   url: https://www.hiive.com/securities/mubi-stock
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    MUBI ships an end-user streaming product only — developer.mubi.com and
+    docs.mubi.com do not resolve, mubi.com/developers 404s, and no OpenAPI,
+    GraphQL, MCP, agent card or llms.txt is served on mubi.com, api.mubi.com,
+    help.mubi.com or feeds.mubi.com; the api.mubi.com host that backs MUBI's own
+    web/mobile/TV clients is undocumented and answers with "CLIENT_COUNTRY HTTP
+    HEADER is required" rather than any published contract.
+  evidence:
+  - url: https://mubi.com/developers
+    status: 404
+  - url: https://api.mubi.com/openapi.json
+    status: 404
+  - url: https://api.mubi.com/graphql
+    status: 404
+  - url: https://api.mubi.com/v3/films
+    status: 422
+  - url: https://mubi.com/.well-known/agent-card.json
+    status: 404
+  - url: https://mubi.com/llms.txt
+    status: 302
+  checked: '2026-08-04'
+x-enrichment:
+  date: '2026-08-04'
+  status: minimal
+  artifacts_added: 2
+  pass: local-v1

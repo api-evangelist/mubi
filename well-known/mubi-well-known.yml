@@ -1,0 +1,35 @@
+generated: '2026-08-04'
+method: probed
+source: live probes of every MUBI host found on the public site
+note: >-
+  No /.well-known/ discovery document is served on any MUBI host. Recorded as
+  negative evidence so a later re-run does not re-litigate the same probes.
+  api.mubi.com answers /.well-known/* with either a 406 JSON error envelope or a
+  200 HTML "404 Not Found" page, so no status alone can be trusted here — every
+  candidate below was body-checked and none parsed as a discovery document.
+hosts:
+- host: https://mubi.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404, body: html-404}
+  - {path: /.well-known/openid-configuration, status: 404, body: html-404}
+  - {path: /.well-known/oauth-authorization-server, status: 404, body: html-404}
+  - {path: /.well-known/oauth-protected-resource, status: 404, body: html-404}
+  - {path: /.well-known/api-catalog, status: 404, body: html-404}
+  - {path: /.well-known/ai-plugin.json, status: 404, body: html-404}
+  - {path: /.well-known/agent-card.json, status: 404, body: html-404}
+  - {path: /.well-known/agent.json, status: 404, body: html-404}
+- host: https://api.mubi.com
+  documents:
+  - {path: /.well-known/security.txt, status: 406, body: empty}
+  - {path: /.well-known/openid-configuration, status: 200, body: html-404-page}
+  - {path: /.well-known/oauth-authorization-server, status: 200, body: html-404-page}
+  - {path: /.well-known/oauth-protected-resource, status: 200, body: html-404-page}
+  - {path: /.well-known/api-catalog, status: 200, body: html-404-page}
+  - {path: /.well-known/ai-plugin.json, status: 406, body: '{"status":406,"error":"Not Acceptable"}'}
+  - {path: /.well-known/agent-card.json, status: 406, body: '{"status":406,"error":"Not Acceptable"}'}
+  - {path: /.well-known/agent.json, status: 406, body: '{"status":406,"error":"Not Acceptable"}'}
+- host: https://feeds.mubi.com
+  note: S3-backed sitemap bucket referenced from robots.txt; serves XML sitemaps only
+  documents:
+  - {path: /.well-known/security.txt, status: 404, body: s3-NoSuchKey}
+found: []
