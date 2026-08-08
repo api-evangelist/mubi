@@ -1,0 +1,14 @@
+{
+  "repo": "mubi",
+  "feeds": [
+    {
+      "source": "https://help.mubi.com/",
+      "feed_url": "https://help.mubi.com/",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-08-06T14:08:46Z"
+}
