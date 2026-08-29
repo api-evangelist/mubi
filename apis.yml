@@ -10,6 +10,17 @@ description: 'MUBI is a London-headquartered global streaming service, film dist
   developer program, API documentation, or machine-readable specification; the
   api.mubi.com host serves its own first-party web, mobile and TV clients only.'
 url: https://raw.githubusercontent.com/api-evangelist/mubi/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://assets.mubicdn.net/splash/volver.jpg
 x-type: company
 x-source: harvest:secondary-market
