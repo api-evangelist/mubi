@@ -1,0 +1,11 @@
+[
+  {
+    "repo": "mubi",
+    "captured_at": "2026-10-11T191048",
+    "source_url": "https://mubi.com/",
+    "source_type": "Website",
+    "file": "mubi-2026-10-11T191048.png",
+    "bytes": 948082,
+    "capture": "playwright-local"
+  }
+]
